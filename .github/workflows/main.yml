@@ -34,7 +34,7 @@ jobs:
           IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/lab6-fastapi
           docker build -t $IMAGE:latest .
 
-      - name: Tag image with commit ID
+      - name: Tag with date
         run: |
           IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/lab6-fastapi
-          docker tag $IMAGE:latest $IMAGE:${{ github.sha }}
+          docker tag $IMAGE:latest $IMAGE:${{ env.TS }}
