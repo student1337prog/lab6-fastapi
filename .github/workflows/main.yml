@@ -32,13 +32,13 @@ jobs:
       - name: Build Docker image
         run: |
           IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/lab6-fastapi
-          docker build -t $IMAGE:${{ env.TS }} .
+          docker build -t $IMAGE:latest .
 
       - name: Tag with date
         run: |
           IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/lab6-fastapi
-          docker tag $IMAGE:${{ env.TS }}
+          docker tag $IMAGE:latest $IMAGE:${{ env.TS }}
       - name: Push images to Docker Hub
         run: |
           IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/lab6-fastapi
-          docker push $IMAGE:${{ env.TS }}
+          docker push $IMAGE:latest $IMAGE:${{ env.TS }}
