@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Create timestamp
+        run:  echo "TS=$(date +%Y-%m-%d-%H-%M-%S)" >> $GITHUB_ENV
       - name: Checkout repo
         uses: actions/checkout@v3
 
